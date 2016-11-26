@@ -1,6 +1,41 @@
 <div class="header">
-	<span class="back-action" ng-if="backAction=='on'" ng-click="back()">
-		<i class="fa fa-angle-left"></i>
-	</span>
-	<span class="heading">{{title}}</span>
+	<div class="wrap">
+		<div class="logo"></div>
+		<div class="welcome-title"></div>
+		<div class="user-section">
+			<div class="hotline"></div>
+			<form ng-submit="ajaxForm()" name="signinForm">
+				<div class="game-input">
+					<input type="text" ng-model="input.username" placeholder="账号" autocomplete="off">
+				</div>
+				<div class="game-input">
+					<input type="password" ng-model="input.password" placeholder="密码" autocomplete="off">
+				</div>
+				<button type="submit" class="signin-btn"></button>
+				<button type="submit" class="signup-btn"></button>
+			</form>
+		</div>
+		<div class="nav">
+			<a href="" class="active">
+				<span>首页</span>
+				<span class="en">Home</span>
+			</a>
+			<a href="">
+				<span>北京赛车</span>
+				<span class="en">Beijing pk10</span>
+			</a>
+			<a href="">
+				<span>幸运飞艇</span>
+				<span class="en">Lottery ship</span>
+			</a>
+			<a href="">
+				<span>广东快乐10分</span>
+				<span class="en">Lottery gd10</span>
+			</a>
+			<a href="">
+				<span>六合彩</span>
+				<span class="en">MarSix</span>
+			</a>
+		</div>
+	</div>
 </div>

@@ -1,4 +1,4 @@
-angular.module("Server").constant("config", {
+angular.module("Game").constant("config", {
 	url: "http://",
 	imageUrl: "http://",
 	request: {

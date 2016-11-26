@@ -1,17 +1,130 @@
 .header {
-	position: relative;
-	padding: 15px 8px;
-	text-align: center;
-	border-bottom: 1px solid @gray-light;
-	overflow: hidden;
-	.clearfix();
-	.back-action {
-		position: absolute;
-		left: 0;
-		top: 1px;
-		padding: 15px 8px;
-	}
-	.heading {
-		display: block;
-	}
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    background-color: #4d0d0e;
+    background-image: url("../images/header_bg.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    &:before {
+        content: "";
+        height: 150px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-image: url("../images/hd-bg-rep.jpg");
+        background-repeat: repeat-x;
+    }
+    .logo {
+        display: inline-block;
+        width: 307px;
+        height: 92px;
+        background-image: url("../images/pc-logo.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 80%;
+        vertical-align: middle;
+    }
+    .welcome-title {
+        display: inline-block;
+        position: relative;
+        top: -18px;
+        left: -10px;
+        width: 167px;
+        height: 49px;
+        background-image: url("../images/welcome.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100%;
+        vertical-align: middle;
+    }
+    .user-section {
+        display: block;
+        float: right;
+        width: 480px;
+    }
+    .user-section-nav {
+        > span {
+            display: inline-block;
+            padding: 10px;
+            color: white;
+            background-color: @brand-primary;
+            margin-bottom: 5px;
+        }
+    }
+    .game-input {
+        display: inline-block;
+        text-indent: 10px;
+        width: 138px;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-image: url("../images/input-bg.png");
+        input {
+            // -webkit-apperence: none;
+            background: transparent;
+            height: 29px;
+            line-height: 29px;
+            border: none;
+            color: #fff;
+            width: 124px;
+            .reset-form-component;
+        }
+    }
+    .signin-btn {
+        display: inline-block;
+        width: 59px;
+        height: 29px;
+        vertical-align: middle;
+        background: url("../images/login.png") no-repeat;
+        .reset-form-component;
+    }
+    .signup-btn {
+        display: inline-block;
+        width: 73px;
+        height: 29px;
+        vertical-align: middle;
+        background: url("../images/reg-btn.png") no-repeat;
+        .reset-form-component;
+    }
+    .hotline {
+    	display: inline-block;
+    	width:480px;
+    	height: 50px;
+    	position: relative;
+    	top: -8px;
+    	left: 5px;
+    	background: url("../images/hotline.png") left center no-repeat;
+    	background-size: 88%;
+
+    }
+}
+.nav {
+    > a {
+        display: inline-block;
+        position: relative;
+        width:150px;
+        padding: 6px 15px;
+        text-align: center;
+        color:white;
+    }
+    a.active ,a:hover{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url("../images/nav-on.png");
+    }
+    span {
+        display: block;
+    }
+    span.en {
+        font-size: 10px;
+    }
+}
+.reset-form-component {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    &:focus {
+        outline: 0;
+    }
 }

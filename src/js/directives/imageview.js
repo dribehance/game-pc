@@ -1,4 +1,4 @@
-angular.module("Server")
+angular.module("Game")
 	.directive('imageview', function($timeout) {
 		return {
 			restrict: 'E',

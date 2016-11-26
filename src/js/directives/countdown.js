@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Server").directive('countdown', function($interval) {
+angular.module("Game").directive('countdown', function($interval) {
 	return {
 		restrict: 'E',
 		scope: {

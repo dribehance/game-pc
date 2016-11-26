@@ -1,0 +1,45 @@
+.banner {
+    position: relative;
+    height: 524px;
+    background-image: url("../images/index-bn-bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    // background-size: contain;
+    &:before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 523px;
+        background-image: url("../images/index-bn-bg-rep.jpg");
+        background-repeat: repeat-x;
+    }
+}
+
+.game-list {
+    // width:1000px;
+    height: 214px;
+    margin: 15px auto;
+    background-image: url("../images/index-box.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    // background-size: 100%;
+    .game-wrap {
+        width: 1000px;
+        margin: auto auto;
+        text-align: justify;
+        font-size: 0.1px;
+        &:after {
+            content: "";
+            width: 100%;
+            display: inline-block;
+        }
+    }
+    .game-item {
+        display: inline-block;
+        margin-top: 20px;
+        // font-size: 14px;
+    }
+}

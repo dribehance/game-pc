@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Server").directive('banner', function() {
+angular.module("Game").directive('banner', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
