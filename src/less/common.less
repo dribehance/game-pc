@@ -1,32 +1,57 @@
 // ---------------------------------------reset
 body {
-	font-family: Helvetica,Droidsansfallback,Dengxian, "微软雅黑","Heiti SC";
-	background-color: #4b0d0e;
+    font-family: Helvetica, Droidsansfallback, Dengxian, "微软雅黑", "Heiti SC";
+    background-color: #4b0d0e;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../images/body_bg.jpg");
 }
+
 a {
     .link();
 }
+
 // ---------------------------------------layout
 .wrap {
-	position: relative;
-	// width: 100%;
-	width: 1000px;
-	padding:15px;
-	margin: auto auto;
-	.box-sizing(border-box);
+    position: relative;
+    // width: 100%;
+    width: 1000px;
+    padding: 15px;
+    margin: auto auto;
+    .box-sizing(border-box);
+    overflow: hidden;
 }
+
 // ---------------------------------------until
 .full-width {
     width: 100%;
     .box-sizing(border-box)
 }
-.text-ellipsis,.text-overflow {
+
+.text-ellipsis,
+.text-overflow {
     .text-overflow();
 }
+
 .link() {
-	text-decoration: none;
-	color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
+
 .block {
-	display: block;
+    display: block;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.reset-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    &:focus {
+    	outline: 0;
+    }
 }

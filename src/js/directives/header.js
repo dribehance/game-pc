@@ -5,7 +5,8 @@ angular.module("Game").directive('dribehanceHeader', function() {
 		templateUrl: "templates/header.html",
 		scope: {
 			title: "=",
-			backAction: "="
+			backAction: "=",
+			active: "="
 		},
 		link: function(scope, element, attrs) {
 			// function body

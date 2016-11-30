@@ -1,0 +1,104 @@
+<!-- <div ng-include="'../templates/header.html'"></div> -->
+<dribehance-header active="'index'"></dribehance-header>
+<div class="wrap">
+    <!-- left wrap -->
+    <div class="left-wrap">
+        <div class="game-section">
+            <div class="section-header">
+                常用操作
+            </div>
+            <div class="section-content text-center">
+                <p><img class="game-action" ng-src="../images/online_customer.png" alt=""></p>
+                <p><img class="game-action" ng-src="../images/online_charge.png" alt=""></p>
+                <p><img class="game-action" ng-src="../images/online_withdraw.png" alt=""></p>
+            </div>
+        </div>
+    </div>
+    <!-- right wrap -->
+    <div class="right-wrap">
+        <div class="game-section">
+            <div class="section-header">
+                <span class="game-type">注册</span>
+            </div>
+            <div class="section-content">
+                <div class="signup-input">
+                    <div class="input-title">用户名：</div>
+                    <div>
+                        <input type="text" placeholder="用户名" ng-model="input.name">
+                    </div>
+                    <div class="tips">
+                        * 英文和数字结合，不可以修改
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">登录密码：</div>
+                    <div>
+                        <input type="text" placeholder="登录密码" ng-model="input.password">
+                    </div>
+                    <div class="tips">
+                        * 英文和数字结合，不可以修改
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">确认登录密码：</div>
+                    <div>
+                        <input type="text" placeholder="确认登录密码" ng-model="input.password_1">
+                    </div>
+                    <div class="tips">
+                        * 英文和数字结合，不可以修改
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">真实姓名：</div>
+                    <div>
+                        <input type="text" placeholder="真实姓名" ng-model="input.realname">
+                    </div>
+                    <div class="tips">
+                        * 必须与银行名称一致，否则不能出款
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">手机号码：</div>
+                    <div>
+                        <input type="text" placeholder="手机号" ng-model="input.telephone">
+                    </div>
+                    <div class="tips">
+                        * 请如实填写，将用于找回密码
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">提现密码：</div>
+                    <div>
+                        <input type="text" placeholder="提现密码" ng-model="input.password_2">
+                    </div>
+                    <div class="tips">
+                        * 英文和数字结合
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">确认提现密码：</div>
+                    <div>
+                        <input type="text" placeholder="确认提现密码" ng-model="input.password_3">
+                    </div>
+                    <div class="tips">
+                        * 英文和数字结合
+                    </div>
+                </div>
+                <div class="signup-input">
+                    <div class="input-title">邀请码：</div>
+                    <div>
+                        <input type="text" placeholder="邀请码" ng-model="input.code">
+                    </div>
+                    <div class="tips">
+                        如果有，请填写
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <span class="reset-btn">重置</span>
+                <span class="submit-btn">注册</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'../templates/footer.html'"></div>

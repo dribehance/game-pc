@@ -12,27 +12,27 @@
 					<input type="password" ng-model="input.password" placeholder="密码" autocomplete="off">
 				</div>
 				<button type="submit" class="signin-btn"></button>
-				<button type="submit" class="signup-btn"></button>
+				<a ng-href="#/signup" class="signup-btn"></a>
 			</form>
 		</div>
 		<div class="nav">
-			<a href="" class="active">
+			<a ng-href="#/index" ng-class="{'active':active =='index'}">
 				<span>首页</span>
 				<span class="en">Home</span>
 			</a>
-			<a href="">
+			<a ng-href="#/saiche" ng-class="{'active':active =='saiche'}">
 				<span>北京赛车</span>
 				<span class="en">Beijing pk10</span>
 			</a>
-			<a href="">
+			<a ng-href="#/feiting" ng-class="{'active':active =='feiting'}">
 				<span>幸运飞艇</span>
 				<span class="en">Lottery ship</span>
 			</a>
-			<a href="">
+			<a ng-href="#/kuaile" ng-class="{'active':active =='kuaile'}">
 				<span>广东快乐10分</span>
 				<span class="en">Lottery gd10</span>
 			</a>
-			<a href="">
+			<a ng-href="#/liuhecai" ng-class="{'active':active =='liuhecai'}">
 				<span>六合彩</span>
 				<span class="en">MarSix</span>
 			</a>
