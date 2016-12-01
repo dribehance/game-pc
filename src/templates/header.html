@@ -1,19 +1,24 @@
-<div class="header">
+<div class="header" ng-controller="headerController">
 	<div class="wrap">
 		<div class="logo"></div>
 		<div class="welcome-title"></div>
-		<div class="user-section">
+		<div class="top-right-section">
 			<div class="hotline"></div>
-			<form ng-submit="ajaxForm()" name="signinForm">
+			<form ng-submit="ajaxForm()" name="signinForm" ng-if="!login">
 				<div class="game-input">
 					<input type="text" ng-model="input.username" placeholder="账号" autocomplete="off">
 				</div>
 				<div class="game-input">
 					<input type="password" ng-model="input.password" placeholder="密码" autocomplete="off">
 				</div>
-				<button type="submit" class="signin-btn"></button>
+				<button type="submit" class="signin-btn" ng-click="signin()"></button>
 				<a ng-href="#/signup" class="signup-btn"></a>
 			</form>
+			<div class="top-nav" ng-if="login">
+				<a ng-href="#/bills">个人中心</a>
+				<a ng-href="#/orders">注单查询</a>
+				<span>当前账户余额：0.00， <span class="hover" ng-click="logout()">退出登录</span></span>
+			</div>
 		</div>
 		<div class="nav">
 			<a ng-href="#/index" ng-class="{'active':active =='index'}">
