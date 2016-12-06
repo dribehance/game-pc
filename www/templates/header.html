@@ -4,20 +4,20 @@
 		<div class="welcome-title"></div>
 		<div class="top-right-section">
 			<div class="hotline"></div>
-			<form ng-submit="ajaxForm()" name="signinForm" ng-if="!login">
+			<form ng-submit="ajaxForm()" name="signinForm" ng-if="!user.user_id">
 				<div class="game-input">
-					<input type="text" ng-model="input.username" placeholder="账号" autocomplete="off">
+					<input type="text" ng-model="input.nickname" placeholder="账号" autocomplete="off">
 				</div>
 				<div class="game-input">
 					<input type="password" ng-model="input.password" placeholder="密码" autocomplete="off">
 				</div>
-				<button type="submit" class="signin-btn" ng-click="signin()"></button>
+				<button type="submit" class="signin-btn"></button>
 				<a ng-href="#/signup" class="signup-btn"></a>
 			</form>
-			<div class="top-nav" ng-if="login">
+			<div class="top-nav" ng-if="user.user_id">
 				<a ng-href="#/bills">个人中心</a>
 				<a ng-href="#/orders">注单查询</a>
-				<span>当前账户余额：0.00， <span class="hover" ng-click="logout()">退出登录</span></span>
+				<span>当前账户余额：{{user.balance_money|currency:"￥"||"0"}}， <span class="hover" ng-click="logout()">退出登录</span></span>
 			</div>
 		</div>
 		<div class="nav">

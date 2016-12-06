@@ -1,21 +1,9 @@
 <!-- <div ng-include="'../templates/header.html'"></div> -->
-<dribehance-header active="'index'"></dribehance-header>
+<dribehance-header active="'index'" user="user"></dribehance-header>
 <div class="wrap">
-    <!-- left wrap -->
-    <div class="left-wrap">
-        <div class="game-section">
-            <div class="section-header">
-                常用操作
-            </div>
-            <div class="section-content text-center">
-                <p><img class="game-action" ng-src="../images/online_customer.png" alt=""></p>
-                <p><img class="game-action" ng-src="../images/online_charge.png" alt=""></p>
-                <p><img class="game-action" ng-src="../images/online_withdraw.png" alt=""></p>
-            </div>
-        </div>
-    </div>
+    <user-sidebar active="'bills'" user="user"></user-sidebar>
     <!-- right wrap -->
-    <div class="right-wrap">
+    <div class="right-wrap" ng-controller="signupController">
         <div class="game-section">
             <div class="section-header">
                 注册
@@ -24,7 +12,7 @@
                 <div class="signup-input">
                     <div class="input-title">用户名：</div>
                     <div>
-                        <input type="text" placeholder="用户名" ng-model="input.name">
+                        <input type="text" placeholder="用户名" name="nickname" ng-model="input.nickname">
                     </div>
                     <div class="tips">
                         * 英文和数字结合，不可以修改
@@ -33,7 +21,7 @@
                 <div class="signup-input">
                     <div class="input-title">登录密码：</div>
                     <div>
-                        <input type="text" placeholder="登录密码" ng-model="input.password">
+                        <input type="password" placeholder="登录密码" name="password_1" ng-model="input.password_1">
                     </div>
                     <div class="tips">
                         * 英文和数字结合，不可以修改
@@ -42,7 +30,7 @@
                 <div class="signup-input">
                     <div class="input-title">确认登录密码：</div>
                     <div>
-                        <input type="text" placeholder="确认登录密码" ng-model="input.password_1">
+                        <input type="password" placeholder="确认登录密码" name="password_2" ng-model="input.password_2">
                     </div>
                     <div class="tips">
                         * 英文和数字结合，不可以修改
@@ -51,7 +39,7 @@
                 <div class="signup-input">
                     <div class="input-title">真实姓名：</div>
                     <div>
-                        <input type="text" placeholder="真实姓名" ng-model="input.realname">
+                        <input type="text" placeholder="真实姓名" name="realname" ng-model="input.realname">
                     </div>
                     <div class="tips">
                         * 必须与银行名称一致，否则不能出款
@@ -60,7 +48,7 @@
                 <div class="signup-input">
                     <div class="input-title">手机号码：</div>
                     <div>
-                        <input type="text" placeholder="手机号" ng-model="input.telephone">
+                        <input type="text" placeholder="手机号" name="" ng-model="input.telephone">
                     </div>
                     <div class="tips">
                         * 请如实填写，将用于找回密码
@@ -69,7 +57,7 @@
                 <div class="signup-input">
                     <div class="input-title">提现密码：</div>
                     <div>
-                        <input type="text" placeholder="提现密码" ng-model="input.password_2">
+                        <input type="password" placeholder="提现密码" name="password_3" ng-model="input.password_3">
                     </div>
                     <div class="tips">
                         * 英文和数字结合
@@ -78,7 +66,7 @@
                 <div class="signup-input">
                     <div class="input-title">确认提现密码：</div>
                     <div>
-                        <input type="text" placeholder="确认提现密码" ng-model="input.password_3">
+                        <input type="password" placeholder="确认提现密码" name="password_4" ng-model="input.password_4">
                     </div>
                     <div class="tips">
                         * 英文和数字结合
@@ -87,7 +75,7 @@
                 <div class="signup-input">
                     <div class="input-title">邀请码：</div>
                     <div>
-                        <input type="text" placeholder="邀请码" ng-model="input.code">
+                        <input type="text" placeholder="邀请码" name="code" ng-model="input.code">
                     </div>
                     <div class="tips">
                         如果有，请填写
@@ -95,8 +83,8 @@
                 </div>
             </div>
             <div class="section-footer">
-                <span class="reset-btn">重置</span>
-                <span class="submit-btn">注册</span>
+                <!-- <span class="reset-btn">重置</span> -->
+                <span class="submit-btn" ng-click="ajaxForm()">注册</span>
             </div>
         </div>
     </div>

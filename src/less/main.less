@@ -67,19 +67,95 @@
 
 .game-code {
     display: inline-block;
+    position: relative;
     width: 20px;
     height: 20px;
     line-height: 20px;
-    vertical-align: middle;
-    text-align: center;
-    color: white;
+    margin-right: 1px;
+    margin-bottom: 5px;
     font-size: 12px;
-    background-color: #4b0d0e;
     border-radius: 100%;
-    .box-shadow(2px 3px 0px fade(black,
-    50%));
+    background-color: #cda462;
+    color: white;
+    border-top: 1px solid fade(white, 20%);
+    border-left: 1px solid fade(white, 20%);
+    text-align: center;
+    vertical-align: middle;
+    .box-shadow(2px 2px 0px fade(black, 50%));
+    .box-sizing(border-box);
+    &:before {
+        content:"";
+        position: absolute;
+        display: inline-block;
+        left: 2px;
+        top:2px;
+        width:5px;
+        height: 5px;
+        border-radius: 100%;
+        background-color: fade(white, 10%);
+        .box-shadow(2px 2px 0px fade(black, 10%));
+    }
+    &:after {
+        content:"";
+        position: absolute;
+        display: inline-block;
+        top:50%;
+        left: 50%;
+        margin-left: -5px;
+        margin-top: -5px;
+        width:12px;
+        height: 12px;
+        border-radius: 100%;
+        background-color: fade(white, 10%);
+        .box-shadow(2px 2px 0px fade(black, 10%));
+    }
+    @media (min-width: 360px) {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 14px;
+    }
+    // .make-feting-code();
+    // .make-saiche-code();
+    // .make-kuaile-code();
+    // .make-liuhecai-code();
+    .make-game-code();
 }
+.make-game-code() {
+    // feiting code
+    @feiting-code-list:01,02,03,04,05,06,07,08,09,10;
+    .loop(feiting-code,@feiting-code-list,length(@feiting-code-list),red,true);
+    // saiche code
+    @saiche-code-list:01,02,03,04,05,06,07,08,09,10;
+    .loop(saiche-code,@saiche-code-list,length(@saiche-code-list),red,true);
+    // kuaile code
+    @kuaile-code-list:01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20;
+    .loop(kuaile-code,@kuaile-code-list,length(@kuaile-code-list),red,true);
+    // liuhecai code
+    @red-code-list:01,02,07,08,12,13,18,19,23,24,29,30,34,35,40,45,46;
+    @blue-code-list:03,04,09,10,14,15,20,25,26,31,36,37,41,42,47,48;
+    @green-code-list:05,06,11,16,17,21,22,27,28,32,33,38,39,43,44,49;
+    .loop(liuhecai-code,@red-code-list,length(@red-code-list),red);
+    .loop(liuhecai-code,@blue-code-list,length(@blue-code-list),blue);
+    .loop(liuhecai-code,@green-code-list,length(@green-code-list),green);
+    .loop (@name,@list,@counter,@color,@random:false) when(@counter > 0) and (@random =  false){
+        @var:extract(@list,@counter);
+        &.@{name}-@{var} {
+            background-color: @color;
+        }
+        .loop(@name,@list,@counter - 1,@color);
+    }
+    .loop (@name,@list,@counter,@color,@random:false) when(@counter > 0) and (@random =  true){
+        @var:extract(@list,@counter);
+        @divide: 360 / length(@list);
+        @hue: @counter * @divide; 
+        &.@{name}-@{var} {
+            background-color: hsl(@hue,50%,50%);
+        }
+        .loop(@name,@list,@counter - 1,@color,@random);
+    }
 
+}
 .game-section {
     // padding: 15px;
     margin-bottom: 15px;
@@ -536,4 +612,8 @@
         margin-top: 5px;
         color: fade(#3e231f, 50%);
     }
+}
+.load-more {
+    padding: 15px;
+    text-align: center;
 }

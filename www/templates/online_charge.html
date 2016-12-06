@@ -1,6 +1,6 @@
-<dribehance-header title="'充值'" back-action="'on'"></dribehance-header>
+<dribehance-header title="'充值'" back-action="'on'" user="user"></dribehance-header>
 <div class="wrap">
-    <user-sidebar active="'online_charge'"></user-sidebar>
+    <user-sidebar active="'online_charge'" user="user"></user-sidebar>
     <!-- right-wrap -->
     <div class="right-wrap">
         <div class="game-section">
@@ -13,10 +13,10 @@
                         <span class="block">账号收款二维码</span>
                         <span class="block">请先转账后提交</span>
                         <div class="qrcode">
-                            <imageview data-rate="1" src="'../images/qrcode.png'"></imageview>
+                            <imageview data-rate="1" src="staticImageUrl + charge_info.getmoney_code"></imageview>
                         </div>
-                        <span class="block">收款账号：xxx</span>
-                        <span class="block">账号名称：xxx</span>
+                        <span class="block">收款账号：{{charge_info.getmoney_account_number}}</span>
+                        <span class="block">账号名称：{{charge_info.getmoney_account_name}}</span>
                     </div>
                 </div>
                 <p></p>
@@ -49,9 +49,10 @@
                 </div>
             </div>
             <div class="section-footer">
-                <span class="reset-btn">重置</span>
-                <span class="submit-btn">充值</span>
+                <!-- <span class="reset-btn">重置</span> -->
+                <span class="submit-btn" ng-click="ajaxForm()">充值</span>
             </div>
         </div>
     </div>
 </div>
+<dribehance-footer></dribehance-footer>

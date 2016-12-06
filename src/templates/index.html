@@ -1,23 +1,29 @@
 <!-- <div ng-include="'../templates/header.html'"></div> -->
-<dribehance-header active="'index'"></dribehance-header>
+<dribehance-header active="'index'" user="user"></dribehance-header>
 <div class="banner"></div>
 <div class="game-list">
     <div class="game-wrap">
-        <a href="" class="game-item">
+        <a ng-href="#/saiche" class="game-item">
             <img ng-src="../images/game_1.png" alt="">
         </a>
-        <a href="" class="game-item">
+        <a ng-href="#/feiting" class="game-item">
             <img ng-src="../images/game_2.png" alt="">
         </a>
         <span class="game-item">
-            <img class="block game-action" ng-src="../images/online_customer.png" alt="">
-            <img class="block game-action" ng-src="../images/online_charge.png" alt="">
-            <img class="block game-action" ng-src="../images/online_withdraw.png" alt="">
+            <a ng-href="#/contact">
+                <img class="block game-action" ng-src="../images/online_customer.png" alt="">
+            </a>
+            <a ng-href="#/online_charge">
+                <img class="block game-action" ng-src="../images/online_charge.png" alt="">
+            </a>
+            <a ng-href="#/online_withdraw">
+                <img class="block game-action" ng-src="../images/online_withdraw.png" alt="">
+            </a>
         </span>
-        <a href="" class="game-item">
+        <a ng-href="#/kuaile" class="game-item">
             <img ng-src="../images/game_3.png" alt="">
         </a>
-        <a href="" class="game-item">
+        <a ng-href="#/liuhecai" class="game-item">
             <img ng-src="../images/game_4.png" alt="">
         </a>
     </div>

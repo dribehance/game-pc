@@ -4,7 +4,8 @@ angular.module("Game").directive('userSidebar', function() {
 		restrict: 'E',
 		templateUrl: "templates/user_sidebar.html",
 		scope: {
-			active: "="
+			active: "=",
+			user: "="
 		},
 		link: function(scope, element, attrs) {
 			// function body

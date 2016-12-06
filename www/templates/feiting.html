@@ -1,4 +1,4 @@
-<dribehance-header title="'幸运飞艇'" back-action="'on'" active="'feiting'"></dribehance-header>
+<dribehance-header title="'幸运飞艇'" back-action="'on'" active="'feiting'" user="user"></dribehance-header>
 <div class="wrap">
     <!-- left wrap -->
     <div class="left-wrap">
@@ -9,54 +9,45 @@
             <div class="section-content">
                 <p>
                     <span class="text-white">第 </span>
-                    <span class="text-primary"> 131</span>
-                    <span class="text-white">距离封盘时间</span>
-                    <span class="text-primary">00:04:29</span>
+                    <span class="text-primary"> {{feiting.qishu_next}}</span>
+                    <span class="text-white">距离开奖时间</span>
+                    <span class="text-primary">
+                        <timer ng-if="feiting.day_seconds" max-time-unit="'minute'" interval="1000" countdown="feiting.day_seconds" finish-callback="callbackTimer.finished()">
+                            {{mminutes}}:{{sseconds}}
+                        </timer>
+                        <span ng-if="!feiting.day_seconds">--:--</span>
+                    </span>
                 </p>
-                <p>
-                    <span class="text-white">2016-11-10 第130期开奖号码</span>
+                <p ng-if="!feiting.waiting">
+                    <span class="text-white">{{feiting.Result.XyftData.datelinedate}} 第 <span class="text-primary">{{feiting.Result.XyftData.qishu}}</span> 期开奖号码</span>
                 </p>
-                <p>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
-                    <span class="game-code">2</span>
+                <p ng-if="feiting.waiting">
+                    <span class="text-white">{{feiting.datelinedate}} 第 <span class="text-primary">{{feiting.qishu_next}}</span> 期开奖号码</span>
+                </p>
+                <p ng-if="feiting.waiting" class="waiting"><i class="fa fa-clock-o" aria-hidden="true"></i> 第 {{feiting.qishu_next}} 期正在开奖，请耐心等候...</p>
+                <p ng-if="!feiting.waiting">
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_01}}">{{feiting.Result.XyftData.n_01}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_02}}">{{feiting.Result.XyftData.n_02}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_03}}">{{feiting.Result.XyftData.n_03}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_04}}">{{feiting.Result.XyftData.n_04}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_05}}">{{feiting.Result.XyftData.n_05}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_06}}">{{feiting.Result.XyftData.n_06}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_07}}">{{feiting.Result.XyftData.n_07}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_08}}">{{feiting.Result.XyftData.n_08}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_09}}">{{feiting.Result.XyftData.n_09}}</span>
+                    <span class="game-code feiting-code-{{feiting.Result.XyftData.n_10}}">{{feiting.Result.XyftData.n_10}}</span>
                 </p>
             </div>
         </div>
-        <div class="game-section">
+        <div class="game-section" ng-if="feiting.Result.XyftBjpkLogs.length>0">
             <div class="section-header">
                 已投
             </div>
             <div class="section-content">
                 <div class="two-grid">
-                    <div class="left-grid">
-                        冠军 单 <span class="text-danger"> 100 元</span>
-                    </div>
-                    <div class="right-grid">
-                        冠军 单 <span class="text-danger"> 100 元</span>
-                    </div>
-                </div>
-                <div class="two-grid">
-                    <div class="left-grid">
-                        冠军 单 <span class="text-danger"> 100 元</span>
-                    </div>
-                    <div class="right-grid">
-                        冠军 单 <span class="text-danger"> 100 元</span>
-                    </div>
-                </div>
-                <div class="two-grid">
-                    <div class="left-grid">
-                        冠军 单 <span class="text-danger"> 100 元</span>
-                    </div>
-                    <div class="right-grid">
-                        冠军 单 <span class="text-danger"> 100 元</span>
+                    <div ng-repeat="log in feiting.Result.XyftBjpkLogs">
+                        <span>{{log.mingci}} {{log.haoma}} </span>
+                        <span class="text-danger"> {{log.money}}</span>
                     </div>
                 </div>
             </div>
@@ -66,46 +57,27 @@
                 近期走势
             </div>
             <div class="section-content">
-                <div class="trend-list-item">
-                    <div class="trend-item-header">2016-01-02 130期</div>
+                <div class="trend-list-item" ng-repeat="feiting_history in feiting_historys">
+                    <div class="trend-item-header">{{feiting_history.datelinedate}} {{feiting_history.qishu}}期</div>
                     <div class="trend-item-content">
                         <div class="game-code-wrap">
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_01}}">{{feiting_history.n_01}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_02}}">{{feiting_history.n_02}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_03}}">{{feiting_history.n_03}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_04}}">{{feiting_history.n_04}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_05}}">{{feiting_history.n_05}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_06}}">{{feiting_history.n_06}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_07}}">{{feiting_history.n_07}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_08}}">{{feiting_history.n_08}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_09}}">{{feiting_history.n_09}}</span>
+                            <span class="game-code feiting-code-{{feiting_history.n_10}}">{{feiting_history.n_10}}</span>
                         </div>
                         <div>
-                            冠军和 13，大，单;1-5龙虎 : 虎，龙，虎，龙，龙
+                            {{feiting_history.XyftData_info}}
                         </div>
                     </div>
                 </div>
-                <div class="trend-list-item">
-                    <div class="trend-item-header">2016-01-02 130期</div>
-                    <div class="trend-item-content">
-                        <div class="game-code-wrap">
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                            <span class="game-code">2</span>
-                        </div>
-                        <div>
-                            冠军和 13，大，单;1-5龙虎 : 虎，龙，虎，龙，龙
-                        </div>
-                    </div>
-                </div>
+                <div class="load-more hover" ng-click="loadMore()">{{page.message}}</div>
             </div>
         </div>
     </div>

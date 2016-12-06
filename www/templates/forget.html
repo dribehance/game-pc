@@ -1,0 +1,85 @@
+<dribehance-header title="'修改密码'" back-action="'on'"></dribehance-header>
+<div class="wrap">
+    <user-sidebar active="'forget'" user="user"></user-sidebar>
+    <!-- right wrap -->
+    <div class="right-wrap">
+        <div class="game-section">
+            <div class="section-header">
+                忘记密码
+            </div>
+            <div class="section-content">
+                <div class="section-content">
+                    <div class="signup-input">
+                        <div class="input-title">用户名：</div>
+                        <div>
+                            <input type="text" placeholder="用户名" name="nickname" ng-model="input.nickname">
+                        </div>
+                        <div class="tips">
+                            * 
+                        </div>
+                    </div>
+                    <div class="signup-input">
+                        <div class="input-title">手机号：</div>
+                        <div>
+                            <input type="text" placeholder="手机号" name="telephone" ng-model="input.telephone">
+                        </div>
+                        <div class="tips">
+                            * 
+                        </div>
+                    </div>
+                    <div class="signup-input">
+                        <div class="input-title">新密码：</div>
+                        <div>
+                            <input type="password" placeholder="新密码" name="password_1" ng-model="input.password_1">
+                        </div>
+                        <div class="tips">
+                            * 
+                        </div>
+                    </div>
+                    <div class="signup-input">
+                        <div class="input-title">确认新密码：</div>
+                        <div>
+                            <input type="password" placeholder="确认新密码" name="password_2" ng-model="input.password_2">
+                        </div>
+                        <div class="tips">
+                            * 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <!-- <span class="reset-btn">重置</span> -->
+                <span class="submit-btn" ng-click="ajaxForm()">修改密码</span>
+            </div>
+        </div>
+    </div>
+    <div class="me-section">
+        
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="game-list-input">
+                    <input type="text" name="nickname" ng-model="input.nickname" placeholder="用户名">
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="game-list-input">
+                    <input type="tel" name="telephone" ng-model="input.telephone" placeholder="手机号">
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="game-list-input">
+                    <input type="password" name="password_1" ng-model="input.password_1" placeholder="新密码">
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="game-list-input">
+                    <input type="password" name="password_2" ng-model="input.password_2" placeholder="确认新密码">
+                </div>
+            </div>
+            <div class="logout-btn" ng-click="ajaxForm()">
+                修改密码
+            </div>
+        </div>
+    </div>
+</div>
+<dribehance-footer></dribehance-footer>

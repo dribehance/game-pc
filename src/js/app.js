@@ -4,7 +4,7 @@ angular.module("Game", [
 		// "ngSanitize",
 		"LocalStorageModule",
 		// "flow",
-		// "timer"
+		"timer"
 	])
 	.config(function($routeProvider, $httpProvider, $locationProvider, localStorageServiceProvider, config) {
 		angular.forEach(config.interceptor, function(path) {
@@ -18,11 +18,11 @@ angular.module("Game", [
 				controller: controllername,
 				resolve: {
 					user: function($q, $location, localStorageService) {
-						var resolve_path = ["account"],
+					var resolve_path = ["bills", "orders", "recommandors", "recommand_income", "my_code", "modify_password", "messages", "online_withdraw"],
 							defer = $q.defer();
 						if (resolve_path.includes(path) && !localStorageService.get("token")) {
 							defer.reject();
-							$location.path("/signin").replace();
+							$location.path("/index").replace();
 							return;
 						}
 						defer.resolve();

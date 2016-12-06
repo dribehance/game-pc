@@ -1,6 +1,6 @@
-<dribehance-header title="'我的推荐码'" back-action="'on'"></dribehance-header>
+<dribehance-header title="'我的推荐码'" back-action="'on'" user="user"></dribehance-header>
 <div class="wrap">
-    <user-sidebar active="'my_code'"></user-sidebar>
+    <user-sidebar active="'my_code'" user="user"></user-sidebar>
     <!-- right wrap -->
     <div class="right-wrap">
         <div class="game-section">
@@ -9,14 +9,15 @@
             </div>
             <div class="section-content">
                 <div class="text-center">
-                    <div> 0123456789 </div>
+                    <div> {{user.invite_code}}</div>
                     将推荐码分享给好友，获得投注返利。
                 </div>
                 <div class="qrcode">
-                    <imageview data-rate="1" src="'../images/qrcode.png'"></imageview>
+                    <imageview data-rate="1" src="staticImageUrl + constant_info.public_number_qrcode"></imageview>
                 </div>
                 <div class="text-center">官方唯一公众号，扫码关注</div>
             </div>
         </div>
     </div>
 </div>
+<dribehance-footer></dribehance-footer>

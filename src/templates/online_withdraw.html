@@ -1,6 +1,6 @@
-<dribehance-header title="'取款'" back-action="'on'"></dribehance-header>
+<dribehance-header title="'取款'" back-action="'on'" user="user"></dribehance-header>
 <div class="wrap">
-    <user-sidebar active="'online_withdraw'"></user-sidebar>
+    <user-sidebar active="'online_withdraw'" user="user"></user-sidebar>
     <!-- right-wrap -->
     <div class="right-wrap">
         <div class="game-section">
@@ -11,7 +11,7 @@
                 <div class="me-section">
                     <div class="me-section-header">
                         <span class="block">账户余额</span>
-                        <span class="balance">5000.00</span>
+                        <span class="balance">{{user.balance_money|currency:"￥"||"0"}}</span>
                         <span>提现的时候，请确提款账号正确无误，如果因账号填写错误导致的提现失败，平台不负任何责任。</span>
                     </div>
                 </div>
@@ -54,9 +54,10 @@
                 </div>
             </div>
             <div class="section-footer">
-                <span class="reset-btn">重置</span>
-                <span class="submit-btn">提现</span>
+                <!-- <span class="reset-btn">重置</span> -->
+                <span class="submit-btn" ng-click="ajaxForm()">提现</span>
             </div>
         </div>
     </div>
 </div>
+<dribehance-footer></dribehance-footer>
