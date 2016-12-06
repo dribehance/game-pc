@@ -314,11 +314,20 @@
     &.layout-2 {
         display: block;
         margin: 15px 5px;
+        overflow: hidden;
         .play-item {
+            width: 20%;
+            float: left;
             >div {
-                width: 10%;
+                width: 50%;
                 height: 50px;
                 line-height: 25px;
+                &:nth-child(2n+1) {
+                    border-left: none;
+                }
+            }
+            .game-code {
+                margin-bottom: 0;
             }
         }
     }

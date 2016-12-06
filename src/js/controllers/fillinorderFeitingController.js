@@ -1,26 +1,26 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Game").controller("fillinorderFeitingController", function($scope, $route, $timeout, $route, userServices, $interval, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
-	$scope.feiting = {}
-	$scope.feiting.waiting = false;
-	$scope.query_feiting = function() {
-		userServices.query_feiting().then(function(data) {
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				$scope.feiting = data;
-			} else {
-				errorServices.autoHide(data.message);
-			}
-			// interval call
-			if ($scope.feiting.waiting) {
-				$timeout(function() {
-					$scope.feiting.day_seconds = "";
-					$scope.query_feiting();
-				}, 5000)
-				return;
-			}
-		})
-	}
-	$scope.query_feiting();
+	// $scope.feiting = {}
+	// $scope.feiting.waiting = false;
+	// $scope.query_feiting = function() {
+	// 	userServices.query_feiting().then(function(data) {
+	// 		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+	// 			$scope.feiting = data;
+	// 		} else {
+	// 			errorServices.autoHide(data.message);
+	// 		}
+	// 		// interval call
+	// 		if ($scope.feiting.waiting) {
+	// 			$timeout(function() {
+	// 				$scope.feiting.day_seconds = "";
+	// 				$scope.query_feiting();
+	// 			}, 5000)
+	// 			return;
+	// 		}
+	// 	})
+	// }
+	// $scope.query_feiting();
 	$scope.game_type = [{
 		"label": "双面",
 		"value": "1",
@@ -35,6 +35,9 @@ angular.module("Game").controller("fillinorderFeitingController", function($scop
 			$scope.query_peilv(1);
 		}
 	}, true);
+	$scope.choose_game_type = function(index) {
+		$scope.input.game_type = $scope.game_type[index];
+	};
 	$scope.query_peilv = function(type) {
 		toastServices.show();
 		userServices.query_peilv({
@@ -46,7 +49,7 @@ angular.module("Game").controller("fillinorderFeitingController", function($scop
 				$scope.games = data.Result.OddsBeans;
 				angular.forEach($scope.games, function(game, index) {
 					angular.forEach(game.oIndexBeans, function(g, i) {
-						g.betting_money = 0;
+						g.betting_money = "";
 						g.betted = false;
 					})
 				})
@@ -56,22 +59,22 @@ angular.module("Game").controller("fillinorderFeitingController", function($scop
 		})
 	};
 	// open popup
-	$scope.show = function(cell, game) {
-		if ($scope.feiting.waiting) {
-			return;
-		}
-		if (cell.betted) {
-			cell.betting_money = 0;
-			cell.betted = false;
-			return
-		}
-		$scope.popup_state = "open";
-		$scope.input.selected_game_cell = cell;
-		$scope.input.selected_game = game;
-	}
-	$scope.close = function() {
-		$scope.popup_state = "close";
-	};
+	// $scope.show = function(cell, game) {
+	// 	if ($scope.feiting.waiting) {
+	// 		return;
+	// 	}
+	// 	if (cell.betted) {
+	// 		cell.betting_money = 0;
+	// 		cell.betted = false;
+	// 		return
+	// 	}
+	// 	$scope.popup_state = "open";
+	// 	$scope.input.selected_game_cell = cell;
+	// 	$scope.input.selected_game = game;
+	// }
+	// $scope.close = function() {
+	// 	$scope.popup_state = "close";
+	// };
 	// betting
 	$scope.betting = function() {
 		var number_reg = /^[0-9]*$/;
@@ -97,7 +100,7 @@ angular.module("Game").controller("fillinorderFeitingController", function($scop
 		}
 		angular.forEach($scope.games, function(game, index) {
 			angular.forEach(game.oIndexBeans, function(g, i) {
-				g.betting_money = 0;
+				g.betting_money = "";
 				g.betted = false;
 			})
 		})
@@ -111,7 +114,7 @@ angular.module("Game").controller("fillinorderFeitingController", function($scop
 			total_money = 0;
 		angular.forEach($scope.games, function(game, index) {
 			angular.forEach(game.oIndexBeans, function(g, i) {
-				if (g.betted) {
+				if (g.betting_money) {
 					var _index = index + 1;
 					total_money += parseFloat(g.betting_money);
 					buy_infos += _index + "A" + g.name + "A" + g.betting_money + "A" + g.rate + "#";

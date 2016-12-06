@@ -33,7 +33,7 @@
                         <div class="table-cell">
                             {{order.money}}
                         </div>
-                        <div class="table-cell" ng-click="show(order)" ng-class="{'text-success':order.backmoney<0}">
+                        <div class="table-cell hover" ng-click="show(order)" ng-class="{'text-success':order.backmoney<0}">
                             {{order.backmoney|currency:"￥"}}
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </div>
