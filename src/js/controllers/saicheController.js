@@ -52,8 +52,8 @@ angular.module("Game").controller("saicheController", function($scope, $route, $
 			$scope.page.pn++;
 		})
 
-	}
-	$scope.loadMore();
+	};
+	// $scope.loadMore();
 	$scope.reload_saiche_history = function() {
 		$scope.page = {
 			pn: 1,

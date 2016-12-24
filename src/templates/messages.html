@@ -8,22 +8,15 @@
                 消息记录
             </div>
             <div class="section-content">
-                <div class="message-section">
+                <div class="message-section" ng-repeat="message in messages">
                     <div class="message-section-header">
-                        2015-06-01 20:20:20
+                        {{message.post_time}}
                     </div>
                     <div class="message-section-content">
-                        你购买的手机充值卡号为 0123456789。
+                        {{message.content}}
                     </div>
                 </div>
-                <div class="message-section">
-                    <div class="message-section-header">
-                        2015-06-01 20:20:20
-                    </div>
-                    <div class="message-section-content">
-                        你购买的手机充值卡号为 0123456789。
-                    </div>
-                </div>
+                <div class="load-more hover ng-binding" ng-click="loadMore()">{{page.message}}</div>
             </div>
         </div>
     </div>
