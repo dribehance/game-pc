@@ -15,9 +15,9 @@ angular.module("Game").controller("kuaileController", function($scope, $route, $
 					$scope.kuaile.day_seconds = "";
 					$scope.query_kuaile();
 				}, 5000)
-				return;
+			} else {
+				$scope.reload_kuaile_history();
 			}
-			$scope.reload_kuaile_history();
 		})
 	}
 	$scope.query_kuaile();

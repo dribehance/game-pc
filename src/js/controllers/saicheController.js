@@ -15,9 +15,9 @@ angular.module("Game").controller("saicheController", function($scope, $route, $
 					$scope.saiche.day_seconds = "";
 					$scope.query_saiche();
 				}, 5000)
-				return;
+			} else {
+				$scope.reload_saiche_history();
 			}
-			$scope.reload_saiche_history();
 		})
 	}
 	$scope.query_saiche();

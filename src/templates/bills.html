@@ -29,7 +29,7 @@
                         </div>
                         <div class="table-cell" ng-class="{'text-success':bill.type=='2' || bill.type == '3'}">
                             {{bill.money|currency:"￥"||"0"}}
-                            <div>{{bill.c_mssage}}</div>
+                            <span>{{bill.c_mssage}}</span>
                         </div>
                         <div class="table-cell">
                             {{bill.balance_money|currency:"￥"||"0"}}

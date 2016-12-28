@@ -15,9 +15,9 @@ angular.module("Game").controller("liuhecaiController", function($scope, $route,
 					$scope.liuhecai.day_seconds = "";
 					$scope.query_liuhecai();
 				}, 5000)
-				return;
+			} else {
+				$scope.reload_liuhecai_history();
 			}
-			$scope.reload_liuhecai_history();
 		})
 	}
 	$scope.query_liuhecai();

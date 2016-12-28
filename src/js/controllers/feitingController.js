@@ -15,9 +15,9 @@ angular.module("Game").controller("feitingController", function($scope, $route, 
 					$scope.feiting.day_seconds = "";
 					$scope.query_feiting();
 				}, 5000)
-				return;
+			} else {
+				$scope.reload_feiting_history();
 			}
-			$scope.reload_feiting_history();
 		})
 	}
 	$scope.query_feiting();

@@ -52,14 +52,14 @@
 
 // 北京赛车
 .left-wrap {
-    width: 30%;
+    width: 35%;
     float: left;
     padding-right: 8px;
     .box-sizing(border-box);
 }
 
 .right-wrap {
-    width: 70%;
+    width: 65%;
     float: left;
     padding-left: 8px;
     .box-sizing(border-box);
@@ -258,6 +258,7 @@
     margin-bottom: 15px;
     // background-color: white;
     background-color: #6b2021;
+    // background-color: #a75758;
     // color: white;
     .section-header {
         padding: 15px;
@@ -594,6 +595,29 @@
         background-color: fade(white, 20%);
         .box-sizing(border-box);
     }
+    .game-select {
+        // float: right;
+        // width: 110px;
+        position: relative;
+        // border-bottom: 1px solid fade(black, 10%);
+        // background-color: #d6b577;
+        &:before {
+            content: "\f107";
+            font-family: FontAwesome;
+            position: absolute;
+            right: 8px;
+            top: 0px;
+        }
+        select {
+            .reset-input;
+            width: 100%;
+            padding-left: 5px;
+            text-align: left;
+            .box-shadow(none);
+            .box-sizing(border-box);
+            background-color: fade(white, 20%);
+        }
+    }
 }
 
 .user-section {
@@ -750,6 +774,13 @@
     border-radius: 5px;
     overflow: hidden;
 }
+.qrcode-contact {
+    display: block;
+    width: 300px;
+    margin: 30px auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
 .bill-table {
     // font-size: 12px;
@@ -790,6 +821,7 @@
         overflow: hidden;
         background-color: #cda462;
         border-top: 1px solid fade(black, 20%);
+        .justified;
     }
     .recommandor-cell {
         float: left;
@@ -804,6 +836,7 @@
     }
     .recommandor-row {
         overflow: hidden;
+        .justified;
     }
 }
 

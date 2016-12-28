@@ -4,7 +4,7 @@ angular.module("Game").controller("recommandIncomeController", function($scope, 
 	$scope.recommand_incomes = [];
 	$scope.page = {
 		pn: 1,
-		page_size: 1,
+		page_size: 20,
 		message: "点击加载更多"
 	}
 	$scope.loadMore = function() {
@@ -13,12 +13,13 @@ angular.module("Game").controller("recommandIncomeController", function($scope, 
 		}
 		toastServices.show();
 		$scope.page.message = "正在加载...";
-		userServices.query_recommandors($scope.page).then(function(data) {
+		userServices.query_recommand_income($scope.page).then(function(data) {
 			toastServices.hide();
 			$scope.page.message = "点击加载更多";
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				$scope.recommand_incomes = $scope.recommand_incomes.concat(data.Result.RecommendList.list);
 				$scope.no_more = $scope.recommand_incomes.length == data.Result.RecommendList.totalRow ? true : false;
+				$scope.total_money = data.total_money;
 			} else {
 				errorServices.autoHide("服务器错误");
 			}
