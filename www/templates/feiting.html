@@ -95,7 +95,7 @@
                         {{game.name}}
                     </div>
                     <div class="play-content">
-                        <div class="play-item" ng-repeat="g in game.oIndexBeans" ng-click="show(g,game)" ng-class="{'selected':g.betted}">
+                        <div class="play-item" ng-repeat="g in game.oIndexBeans track by $index" ng-click="show(g,game)" ng-class="{'selected':g.betted}" ng-if="!($index+1 > 4 && $parent.$index+1 > 5)">
                             <div class="play-title">
                                 {{g.name}} {{g.rate}}
                             </div>
