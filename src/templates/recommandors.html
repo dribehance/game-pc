@@ -30,8 +30,9 @@
                                 {{recommandor.invite_code||"-"}}
                             </div>
                         </div>
-                        <div class="load-more hover text-center" ng-click="loadMore()">{{page.message}}</div>
                     </div>
+                    <div class="load-more hover text-center" ng-if="!no_more" ng-click="loadMore()">{{page.message}}</div>
+                    <div class="text-center" ng-if="no_more" style="padding-top:15px;" ng-click="loadMore()">暂无更多数据</div>
                 </div>
             </div>
         </div>

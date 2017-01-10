@@ -25,17 +25,17 @@
                     <span class="text-white">{{saiche.datelinedate}} 第 <span class="text-primary">{{saiche.qishu_next}}</span> 期开奖号码</span>
                 </p>
                 <p ng-if="saiche.waiting" class="waiting"><i class="fa fa-clock-o" aria-hidden="true"></i> 第 {{saiche.qishu_next}} 期正在开奖，请耐心等候...</p>
-                <p ng-if="!saiche.waiting">
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_01}}">{{saiche.Result.BjpksData.n_01}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_02}}">{{saiche.Result.BjpksData.n_02}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_03}}">{{saiche.Result.BjpksData.n_03}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_04}}">{{saiche.Result.BjpksData.n_04}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_05}}">{{saiche.Result.BjpksData.n_05}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_06}}">{{saiche.Result.BjpksData.n_06}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_07}}">{{saiche.Result.BjpksData.n_07}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_08}}">{{saiche.Result.BjpksData.n_08}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_09}}">{{saiche.Result.BjpksData.n_09}}</span>
-                    <span class="game-code feiting-code-{{saiche.Result.BjpksData.n_10}}">{{saiche.Result.BjpksData.n_10}}</span>
+                <p ng-if="!saiche.waiting" class="justified">
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_01}}">{{saiche.Result.BjpksData.n_01}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_02}}">{{saiche.Result.BjpksData.n_02}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_03}}">{{saiche.Result.BjpksData.n_03}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_04}}">{{saiche.Result.BjpksData.n_04}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_05}}">{{saiche.Result.BjpksData.n_05}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_06}}">{{saiche.Result.BjpksData.n_06}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_07}}">{{saiche.Result.BjpksData.n_07}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_08}}">{{saiche.Result.BjpksData.n_08}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_09}}">{{saiche.Result.BjpksData.n_09}}</span></span>
+                    <span><span class="game-code feiting-code-{{saiche.Result.BjpksData.n_10}}">{{saiche.Result.BjpksData.n_10}}</span></span>
                 </p>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <div class="two-grid">
                     <div ng-repeat="log in saiche.Result.XyftBjpkLogs">
                         <span>{{log.mingci}} {{log.haoma}} </span>
-                        <span class="text-danger"> {{log.money}}</span>
+                        <span> {{log.money}}</span>
                     </div>
                 </div>
             </div>
@@ -61,16 +61,16 @@
                     <div class="trend-item-header">{{saiche_history.datelinedate}} {{saiche_history.qishu}}期</div>
                     <div class="trend-item-content">
                         <div class="game-code-wrap">
-                            <span class="game-code feiting-code-{{saiche_history.n_01}}">{{saiche_history.n_01}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_02}}">{{saiche_history.n_02}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_03}}">{{saiche_history.n_03}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_04}}">{{saiche_history.n_04}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_05}}">{{saiche_history.n_05}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_06}}">{{saiche_history.n_06}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_07}}">{{saiche_history.n_07}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_08}}">{{saiche_history.n_08}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_09}}">{{saiche_history.n_09}}</span>
-                            <span class="game-code feiting-code-{{saiche_history.n_10}}">{{saiche_history.n_10}}</span>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_01}}">{{saiche_history.n_01}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_02}}">{{saiche_history.n_02}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_03}}">{{saiche_history.n_03}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_04}}">{{saiche_history.n_04}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_05}}">{{saiche_history.n_05}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_06}}">{{saiche_history.n_06}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_07}}">{{saiche_history.n_07}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_08}}">{{saiche_history.n_08}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_09}}">{{saiche_history.n_09}}</span></div>
+                            <div><span class="game-code feiting-code-{{saiche_history.n_10}}">{{saiche_history.n_10}}</span></div>
                         </div>
                         <div>
                             {{saiche_history.bjpksdata_info}}
@@ -97,7 +97,7 @@
                     <div class="play-content" ng-class="{'opacity_05':feiting.waiting}">
                         <div class="play-item" ng-repeat="g in game.oIndexBeans" ng-click="show(g,game)" ng-class="{'selected':g.betted}" ng-if="!($index+1 > 4 && $parent.$index+1 > 5)">
                             <div class="play-title">
-                                {{g.name}} {{g.rate}}
+                                <span class="label">{{g.name}}</span> {{g.rate}}
                             </div>
                             <div class="play-input">
                                 <input type="number" min="0" ng-model="g.betting_money" placeholder="输入金额">
