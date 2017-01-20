@@ -2,10 +2,22 @@
 angular.module("Game").controller("saicheController", function($scope, $route, $rootScope, $timeout, $interval, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.saiche = {}
 	$scope.saiche.waiting = false;
+	userServices.query_constant_info().then(function(data) {
+		toastServices.hide()
+		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+			$scope.charge_info = data.Constant;
+		} else {
+			errorServices.autoHide(data.message);
+		}
+	})
 	$scope.query_saiche = function() {
 		userServices.query_saiche().then(function(data) {
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				$scope.saiche = data;
+				$scope.total_betting_money = 0;
+				angular.forEach($scope.saiche.Result.XyftBjpkLogs, function(v, k) {
+					$scope.total_betting_money += parseFloat(v.money);
+				});
 			} else {
 				errorServices.autoHide(data.message);
 			}
@@ -15,9 +27,9 @@ angular.module("Game").controller("saicheController", function($scope, $route, $
 					$scope.saiche.day_seconds = "";
 					$scope.query_saiche();
 				}, 5000)
-			} else {
-				$scope.reload_saiche_history();
+				return;
 			}
+			$scope.reload_saiche_history();
 		})
 	}
 	$scope.query_saiche();
@@ -52,8 +64,8 @@ angular.module("Game").controller("saicheController", function($scope, $route, $
 			$scope.page.pn++;
 		})
 
-	};
-	// $scope.loadMore();
+	}
+	$scope.loadMore();
 	$scope.reload_saiche_history = function() {
 		$scope.page = {
 			pn: 1,

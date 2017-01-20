@@ -60,15 +60,15 @@
                 </div>
             </div>
         </div>
-        <div class="game-section" ng-if="kuaile.Result.XyftBjpkLogs.length>0">
+        <div class="game-section" ng-if="liuhecai.Result.XyftBjpkLogs.length>0">
             <div class="section-header">
-                已投
+                已投 {{total_betting_money}} 元
             </div>
             <div class="section-content">
                 <div class="two-grid">
                     <div ng-repeat="log in liuhecai.Result.XyftBjpkLogs">
-                        <span>{{log.mingci}} {{log.haoma}} </span>
-                        <span> {{log.money}}</span>
+                        <span>{{log.mingci}} {{log.money}} </span>
+                       <div style="color:#272727"><b>{{log.haoma||"-"}} / {{log.t_one||"-"}} / {{log.t_two||"-"}}</b> </div>
                     </div>
                 </div>
             </div>
